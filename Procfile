@@ -1,0 +1,1 @@
+web: knex migrate:rollback && knex:latest && node src/server.js
