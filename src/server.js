@@ -5,13 +5,12 @@ const app = express();
 
 app.use(express.json());
 
-app.all(cors());
-// app.use((require, response, next) => {
-//   response.header("Access-Control-Allow-Origin", "http://localhost:3000/");
-//   response.header("Access-Control-Allow-Origin", "GET, PUT, POST, DELETE");
-//   app.use(cors());
-//   next();
-// });
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  app.use(cors());
+  next();
+});
 
 app.use(routes);
 
