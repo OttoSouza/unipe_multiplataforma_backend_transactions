@@ -3,10 +3,6 @@ const routes = express.Router();
 const incomesController = require('./controllers/IncomesController');
 const expensesController = require('./controllers/ExpensesController');
 
-routes.get('/', (require, response) => {
-  return response.send('welcome finanses app');
-});
-
 routes.get('/list-incomes', incomesController.index)
 routes.get('/list-incomes/:id', incomesController.getById)
 routes.post('/create-incomes', incomesController.create)
