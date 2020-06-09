@@ -4,7 +4,7 @@ module.exports = {
   async index(request, response) {
     try {
       const incomes = await connection("incomes").select("*");
-      return response.status(200).json({ incomes });
+      return response.status(200).json( incomes );
     } catch {
       return response.status(400).json({ err: "Nao existem dados" });
     }
