@@ -4,7 +4,7 @@ module.exports = {
   async index(request, response) {
     try {
       const expenses = await connection("expenses").select("*");
-      return response.status(200).json({ expenses });
+      return response.status(200).json(expenses);
     } catch {
       return response.status(400).json({ err: "There're no expenses!" });
     }
@@ -16,7 +16,7 @@ module.exports = {
         name,
         value,
       });
-      return response.status(204).json({ expenses });
+      return response.status(204).json(expenses);
     } catch (error) {
       return response.status(400).json({ err: "Put a name and value!" });
     }
@@ -30,7 +30,7 @@ module.exports = {
         name,
         value,
       });
-      return response.status(204).json({ expenses });
+      return response.status(204).json(expenses);
     } catch (error) {
       return response.status(400).json({ err: "Expenses doesn't exist" });
     }

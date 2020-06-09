@@ -15,7 +15,7 @@ module.exports = {
       name,
       value,
     });
-    return response.status(204).json({ incomes });
+    return response.status(204).json(incomes);
   },
 
   async update(request, response) {
@@ -26,7 +26,7 @@ module.exports = {
         name,
         value,
       });
-      return response.status(204).json({ incomes });
+      return response.status(204).json(incomes);
     } catch (error) {
       return response.status(400).json({ err: "Nao existem dados" });
     }
