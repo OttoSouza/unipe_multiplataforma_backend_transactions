@@ -29,7 +29,8 @@ module.exports = {
       const incomes = await connection("incomes").where("id", id).update({
         name,
         value,
-      });
+      }).returning('*');
+      
       return response.status(200).json(incomes);
     } catch (error) {
       return response.status(400).json({ err: "Nao existem dados" });
