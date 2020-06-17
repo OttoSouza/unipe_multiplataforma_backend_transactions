@@ -11,11 +11,15 @@ module.exports = {
   },
   async create(request, response) {
     const { name, value } = request.body;
-    const incomes = await connection("incomes").insert({
-      name,
-      value,
-    });
-    return response.status(201).json(incomes);
+    try {
+      const incomes = await connection("incomes").insert({
+        name,
+        value,
+      }).returning('*');
+      return response.status(201).json(incomes);
+    } catch (error) {
+      return response.status(400).json({ err: "Nao existem dados" });
+    }
   },
 
   async update(request, response) {
